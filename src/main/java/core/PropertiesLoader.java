@@ -3,16 +3,28 @@ package core;
 import java.io.IOException;
 import java.util.Properties;
 
-public class PropertyReader {
+public class PropertiesLoader {
     protected Properties properties;
 
-    public PropertyReader() {
+    public PropertiesLoader() {
         properties = new Properties();
         try {
             properties.load(getClass().getClassLoader().getResourceAsStream("config.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public PropertiesLoader(String propFileName){
+        properties = new Properties();
+        try {
+            properties.load(getClass().getClassLoader().getResourceAsStream("credentials.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getProperty(String key){
+        return this.properties.getProperty(key);
     }
 
     public String getBaseUrl(){

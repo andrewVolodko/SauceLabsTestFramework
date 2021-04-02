@@ -1,24 +1,24 @@
 package baseEntitites;
 
 import core.BrowserService;
-import core.PropertyReader;
+import core.PropertiesLoader;
 import org.openqa.selenium.WebDriver;
 
 public abstract class BasePage {
     protected WebDriver driver;
-    private BrowserService browserService;
+    private final BrowserService browserService;
     public String baseUrl;
 
     public BasePage(BrowserService browserService) {
         this.browserService = browserService;
         this.driver = browserService.getDriver();
 
-        this.baseUrl = new PropertyReader().getBaseUrl();
+        this.baseUrl = new PropertiesLoader().getBaseUrl();
 
         waitForOpen();
     }
 
-    protected abstract void open();
+    public abstract void open();
     public abstract boolean isPageOpened();
 
     protected void waitForOpen(){

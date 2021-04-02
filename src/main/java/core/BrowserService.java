@@ -11,7 +11,7 @@ public class BrowserService {
     private WebDriver driver;
 
     public BrowserService() {
-        var propertyReader = new PropertyReader();
+        var propertyReader = new PropertiesLoader();
 
         DriverManagerType driverManagerType;
         switch (propertyReader.getBrowserName().toLowerCase()) {

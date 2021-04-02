@@ -8,16 +8,17 @@ import org.openqa.selenium.WebElement;
 public class LoginPage extends BasePage {
 
     // Locators
-    protected static final By btnLoginBy = By.id("login-button");
-    protected static final By inputUsernameBy = By.id("user-name");
-    protected static final By inputPasswordBy = By.id("password");
+    private static final By btnLoginBy = By.id("login-button");
+    private static final By inputUsernameBy = By.id("user-name");
+    private static final By inputPasswordBy = By.id("password");
+    private static final By errorWindowBy = By.cssSelector("[data-test=error]");
 
     public LoginPage(BrowserService browserService) {
         super(browserService);
     }
 
     @Override
-    protected void open() {
+    public void open() {
         driver.get(baseUrl);
     }
 
@@ -39,5 +40,5 @@ public class LoginPage extends BasePage {
     public WebElement getPasswordInput() {
         return driver.findElement(inputPasswordBy);
     }
-
+    public WebElement getErrorWindow() { return driver.findElement(errorWindowBy); }
 }
