@@ -1,7 +1,6 @@
 package baseEntitites;
 
 import core.BrowserService;
-import org.jsoup.Connection;
 
 import java.lang.reflect.InvocationTargetException;
 

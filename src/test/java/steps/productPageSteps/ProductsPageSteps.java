@@ -2,9 +2,11 @@ package steps.productPageSteps;
 
 import baseEntitites.BaseStep;
 import core.BrowserService;
-import pages.productsPage.BurgerMenu;
 import pages.productsPage.ProductsPage;
 import steps.LoginPageSteps;
+import steps.ShoppingCartPageSteps;
+
+import java.util.NoSuchElementException;
 
 public class ProductsPageSteps extends BaseStep<ProductsPage> {
 
@@ -12,7 +14,7 @@ public class ProductsPageSteps extends BaseStep<ProductsPage> {
         super(browserService, ProductsPage.class);
     }
 
-    public String getPageTitleElText(){
+    public String getPageTitleElText() {
         ProductsPage productsPage = new ProductsPage(browserService);
 
         return productsPage.getPageTitleEl().getText();
@@ -24,16 +26,44 @@ public class ProductsPageSteps extends BaseStep<ProductsPage> {
         return new ProductsPageSteps(browserService);
     }
 
-    public BurgerMenu openBurgerMenu(){
+    public ProductsPageSteps openSideBarMenu() {
         this.page.getBurgerMenuBtn().click();
-        while(this.page.getBurgerMenuWrapper().getAttribute("aria-hidden").equals("true")){
-            browserService.sleep(500);
+        while (this.page.getSidebarMenuWrapper().getAttribute("aria-hidden").equals("true")) {
+            browserService.sleep(600);
         }
-        return new BurgerMenu(browserService);
+        return new ProductsPageSteps(browserService);
     }
 
-    public LoginPageSteps logOut(){
-        openBurgerMenu().getLogOutLink().click();
+    public LoginPageSteps logOut() {
+        openSideBarMenu();
+        this.page.getLogOutLink().click();
         return new LoginPageSteps(browserService);
+    }
+
+    public ProductsPageSteps addProductToCartByName(String productName) {
+        var requiredProduct = this.page.getAllProducts()
+                .stream()
+                .filter(product -> product.getTextName().equals(productName))
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException("Product was not found"));
+        requiredProduct.getAddToCartBtn().click();
+
+        return new ProductsPageSteps(browserService);
+    }
+
+    public ShoppingCartPageSteps openShoppingCart() {
+        this.page.getShoppingCartLink().click();
+        return new ShoppingCartPageSteps(browserService);
+    }
+
+    public ProductPageSteps openProductPageByName(String productName) {
+        var requiredProduct = this.page.getAllProducts()
+                .stream()
+                .filter(product -> product.getTextName().equals(productName))
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException("Product was not found"));
+        requiredProduct.getName().click();
+
+        return new ProductPageSteps(browserService);
     }
 }

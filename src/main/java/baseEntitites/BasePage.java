@@ -18,7 +18,6 @@ public abstract class BasePage {
         waitForOpen();
     }
 
-    public abstract void open();
     public abstract boolean isPageOpened();
 
     protected void waitForOpen(){

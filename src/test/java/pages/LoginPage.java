@@ -18,7 +18,6 @@ public class LoginPage extends BasePage {
         super(browserService);
     }
 
-    @Override
     public void open() {
         driver.get(baseUrl);
     }
