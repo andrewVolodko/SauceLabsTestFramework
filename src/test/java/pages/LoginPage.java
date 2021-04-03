@@ -13,6 +13,7 @@ public class LoginPage extends BasePage {
     private static final By inputPasswordBy = By.id("password");
     private static final By errorWindowBy = By.cssSelector("[data-test=error]");
 
+
     public LoginPage(BrowserService browserService) {
         super(browserService);
     }
@@ -40,5 +41,7 @@ public class LoginPage extends BasePage {
     public WebElement getPasswordInput() {
         return driver.findElement(inputPasswordBy);
     }
-    public WebElement getErrorWindow() { return driver.findElement(errorWindowBy); }
+    public WebElement getErrorWindow() {
+        return driver.findElement(errorWindowBy);
+    }
 }
