@@ -1,4 +1,4 @@
-package pages.productsPage;
+package pages;
 
 import baseEntitites.BasePage;
 import core.BrowserService;
@@ -31,8 +31,10 @@ public class ProductsPage extends BasePage {
         super(browserService);
     }
 
+    @Override
     public void open() {
         driver.get(baseUrl + PATH);
+        super.open();
     }
 
     @Override

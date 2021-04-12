@@ -17,7 +17,7 @@ public class ShoppingCartPageSteps extends BaseStep<ShoppingCartPage> {
     @Override
     public ShoppingCartPageSteps open() {
         this.page.open();
-        return new ShoppingCartPageSteps(browserService);
+        return this;
     }
 
     public ShoppingCartItemModel getShoppingCartItemByName(String shoppingCartItemName){

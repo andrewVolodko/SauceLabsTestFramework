@@ -20,7 +20,6 @@ public abstract class BaseTest {
     @BeforeMethod
     public void setUpMethod(){
         browserService = new BrowserService();
-        browserService.getDriver().get(propertyReader.getBaseUrl());
         browserService.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
     }
 

@@ -15,7 +15,7 @@ public class LoginPageSteps extends BaseStep<LoginPage> {
     @Override
     public LoginPageSteps open() {
         this.page.open();
-        return new LoginPageSteps(browserService);
+        return this;
     }
 
     public ProductsPageSteps logInWithValidCreds(Credentials creds){

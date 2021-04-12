@@ -16,7 +16,7 @@ public class ProductPageSteps extends BaseStep<ProductPage> {
     }
 
     @Override
-    public BaseStep<ProductPage> open() {
-        return null;
+    public ProductPageSteps open() {
+        return this;
     }
 }

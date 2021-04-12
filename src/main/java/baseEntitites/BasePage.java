@@ -14,11 +14,12 @@ public abstract class BasePage {
         this.driver = browserService.getDriver();
 
         this.baseUrl = new PropertiesLoader().getBaseUrl();
-
-        waitForOpen();
     }
 
     public abstract boolean isPageOpened();
+    public void open() {
+        waitForOpen();
+    }
 
     protected void waitForOpen(){
         int secondsCount = 0;

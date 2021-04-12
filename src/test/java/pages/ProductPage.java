@@ -4,7 +4,6 @@ import baseEntitites.BasePage;
 import core.BrowserService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import pages.productsPage.ProductsPage;
 
 public class ProductPage extends BasePage {
 
@@ -24,6 +23,11 @@ public class ProductPage extends BasePage {
         } catch (Exception ex) {
             return false;
         }
+    }
+
+    @Override
+    public void open() {
+        super.open();
     }
 
     public WebElement getBackToProductsBtn(){

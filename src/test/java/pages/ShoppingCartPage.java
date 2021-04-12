@@ -26,9 +26,10 @@ public class ShoppingCartPage extends BasePage {
         super(browserService);
     }
 
-
+    @Override
     public void open() {
         driver.get(baseUrl + PATH);
+        super.open();
     }
 
     @Override

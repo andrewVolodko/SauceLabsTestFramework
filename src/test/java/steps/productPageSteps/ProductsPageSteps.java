@@ -2,7 +2,9 @@ package steps.productPageSteps;
 
 import baseEntitites.BaseStep;
 import core.BrowserService;
-import pages.productsPage.ProductsPage;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.ProductsPage;
 import steps.LoginPageSteps;
 import steps.ShoppingCartPageSteps;
 
@@ -23,14 +25,14 @@ public class ProductsPageSteps extends BaseStep<ProductsPage> {
     @Override
     public ProductsPageSteps open() {
         this.page.open();
-        return new ProductsPageSteps(browserService);
+        return this;
     }
 
     public ProductsPageSteps openSideBarMenu() {
         this.page.getBurgerMenuBtn().click();
-        while (this.page.getSidebarMenuWrapper().getAttribute("aria-hidden").equals("true")) {
-            browserService.sleep(600);
-        }
+        var wait = new WebDriverWait(browserService.getDriver(), 5);
+        wait.until(ExpectedConditions.elementToBeClickable(this.page.getLogOutLink()));
+
         return new ProductsPageSteps(browserService);
     }
 
