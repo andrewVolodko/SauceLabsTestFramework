@@ -30,11 +30,11 @@ public class ProductPage extends BasePage {
         super.open();
     }
 
-    public WebElement getBackToProductsBtn(){
+    public WebElement getBackToProductsBtn() {
         return driver.findElement(btnBackToProductsBy);
     }
 
-    public WebElement getProductName(){
+    public WebElement getProductName() {
         return driver.findElement(productNameBy);
     }
 }

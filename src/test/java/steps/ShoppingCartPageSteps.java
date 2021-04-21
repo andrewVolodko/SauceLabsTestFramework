@@ -3,11 +3,9 @@ package steps;
 import baseEntitites.BaseStep;
 import core.BrowserService;
 import models.ShoppingCartItemModel;
-import org.openqa.selenium.WebElement;
 import pages.ShoppingCartPage;
 
 import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
 public class ShoppingCartPageSteps extends BaseStep<ShoppingCartPage> {
     public ShoppingCartPageSteps(BrowserService browserService) {
@@ -20,7 +18,7 @@ public class ShoppingCartPageSteps extends BaseStep<ShoppingCartPage> {
         return this;
     }
 
-    public ShoppingCartItemModel getShoppingCartItemByName(String shoppingCartItemName){
+    public ShoppingCartItemModel getShoppingCartItemByName(String shoppingCartItemName) {
         return this.page.getAllShoppingCartItems()
                 .stream()
                 .filter(item -> item.getTextName().equals(shoppingCartItemName))

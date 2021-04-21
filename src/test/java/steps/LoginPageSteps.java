@@ -18,7 +18,7 @@ public class LoginPageSteps extends BaseStep<LoginPage> {
         return this;
     }
 
-    public ProductsPageSteps logInWithValidCreds(Credentials creds){
+    public ProductsPageSteps logInWithValidCreds(Credentials creds) {
         page.getUsernameInput().sendKeys(creds.getUsername());
         page.getPasswordInput().sendKeys(creds.getPassword());
         page.getLoginBtn().click();
@@ -26,7 +26,7 @@ public class LoginPageSteps extends BaseStep<LoginPage> {
         return new ProductsPageSteps(browserService);
     }
 
-    public LoginPageSteps logInWithInvalidCreds(Credentials creds){
+    public LoginPageSteps logInWithInvalidCreds(Credentials creds) {
         page.getUsernameInput().sendKeys(creds.getUsername());
         page.getPasswordInput().sendKeys(creds.getPassword());
         page.getLoginBtn().click();
@@ -34,7 +34,7 @@ public class LoginPageSteps extends BaseStep<LoginPage> {
         return new LoginPageSteps(browserService);
     }
 
-    public String getErrorWindowText(){
+    public String getErrorWindowText() {
         return page.getErrorWindow().getText();
     }
 

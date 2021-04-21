@@ -1,6 +1,5 @@
 package testTemplates;
 
-import baseEntitites.BaseTest;
 import dataObjects.Credentials;
 import dataObjects.CredentialsFactory;
 import org.testng.annotations.BeforeMethod;
@@ -11,7 +10,6 @@ public abstract class SimpleTestTemplate extends BaseTest {
     protected LoginPageSteps loginPageSteps;
     protected ProductsPageSteps productsPageSteps;
 
-    protected static final Credentials validUserCreds = CredentialsFactory.loadCredentials().getValidUserCreds();
     protected static final Credentials lockedUserCreds = CredentialsFactory.loadCredentials().getLockedUserCreds();
     protected static final Credentials problemUserCreds = CredentialsFactory.loadCredentials().getProblemUserCreds();
     protected static final Credentials invalidUserCreds = CredentialsFactory.loadCredentials().getInvalidUserCredsCreds();

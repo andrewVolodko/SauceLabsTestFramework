@@ -41,11 +41,11 @@ public class ShoppingCartPage extends BasePage {
         }
     }
 
-    public WebElement getCheckoutBtn(){
+    public WebElement getCheckoutBtn() {
         return driver.findElement(btnCheckoutBy);
     }
 
-    public List<ShoppingCartItemModel> getAllShoppingCartItems(){
+    public List<ShoppingCartItemModel> getAllShoppingCartItems() {
         return driver.findElements(shoppingCartItemBy).stream()
                 .map(productItem -> new ShoppingCartItemModel(
                         productItem.findElement(shoppingCartItemNameBy),

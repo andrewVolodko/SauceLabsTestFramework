@@ -54,7 +54,7 @@ public class ProductsPage extends BasePage {
         return driver.findElement(btnBurgerMenuBy);
     }
 
-    public WebElement getLogOutLink(){
+    public WebElement getLogOutLink() {
         return driver.findElement(linkLogOutBy);
     }
 

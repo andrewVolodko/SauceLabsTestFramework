@@ -14,24 +14,25 @@ public class PropertiesLoader {
             e.printStackTrace();
         }
     }
-    public PropertiesLoader(String propFileName){
+
+    public PropertiesLoader(String fileName) {
         properties = new Properties();
         try {
-            properties.load(getClass().getClassLoader().getResourceAsStream("credentials.properties"));
+            properties.load(getClass().getClassLoader().getResourceAsStream(fileName));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public String getProperty(String key){
+    public String getProperty(String key) {
         return this.properties.getProperty(key);
     }
 
-    public String getBaseUrl(){
+    public String getBaseUrl() {
         return properties.getProperty("baseUrl");
     }
 
-    public String getBrowserName(){
+    public String getBrowserName() {
         return properties.getProperty("browser");
     }
 }

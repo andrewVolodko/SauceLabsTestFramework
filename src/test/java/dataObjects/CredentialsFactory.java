@@ -4,7 +4,7 @@ import core.PropertiesLoader;
 
 public class CredentialsFactory {
     private static CredentialsFactory instance;
-    private static final PropertiesLoader prLoader = new PropertiesLoader("src/test/resources/credentials.properties");
+    private static final PropertiesLoader prLoader = new PropertiesLoader("credentials.properties");
     private static Credentials validUserCreds;
     private static Credentials lockedUserCreds;
     private static Credentials problemUserCreds;
@@ -32,12 +32,15 @@ public class CredentialsFactory {
     public Credentials getValidUserCreds() {
         return validUserCreds;
     }
+
     public Credentials getLockedUserCreds() {
         return lockedUserCreds;
     }
+
     public Credentials getProblemUserCreds() {
         return problemUserCreds;
     }
+
     public Credentials getInvalidUserCredsCreds() {
         return invalidUserCreds;
     }

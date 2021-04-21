@@ -7,14 +7,14 @@ import testTemplates.SimpleTestTemplate;
 public class SmokeTest extends SimpleTestTemplate {
 
     @Test
-    public void validUserLogInTest(){
+    public void validUserLogInTest() {
         loginPageSteps.open().logInWithValidCreds(validUserCreds);
 
         Assert.assertEquals(productsPageSteps.getPageTitleElText(), "PRODUCTS");
     }
 
     @Test
-    public void invalidUserLogInTest(){
+    public void invalidUserLogInTest() {
         loginPageSteps.open()
                 .logInWithInvalidCreds(invalidUserCreds);
 
@@ -22,7 +22,7 @@ public class SmokeTest extends SimpleTestTemplate {
     }
 
     @Test
-    public void lockedUserLogInTest(){
+    public void lockedUserLogInTest() {
         loginPageSteps.open()
                 .logInWithInvalidCreds(lockedUserCreds);
 
@@ -30,7 +30,7 @@ public class SmokeTest extends SimpleTestTemplate {
     }
 
     @Test
-    public void validUserLogInLogOutTest(){
+    public void validUserLogInLogOutTest() {
         loginPageSteps.open()
                 .logInWithValidCreds(validUserCreds)
                 .logOut();
@@ -39,7 +39,7 @@ public class SmokeTest extends SimpleTestTemplate {
     }
 
     @Test
-    public void addProductToShoppingCartTest(){
+    public void addProductToShoppingCartTest() {
         var productName = "Sauce Labs Bolt T-Shirt";
         var shoppingCartPage = loginPageSteps.open()
                 .logInWithValidCreds(validUserCreds)
@@ -50,7 +50,7 @@ public class SmokeTest extends SimpleTestTemplate {
     }
 
     @Test
-    public void openProductPageTest(){
+    public void openProductPageTest() {
         var productName = "Sauce Labs Fleece Jacket";
         var productPage = loginPageSteps.open()
                 .logInWithValidCreds(validUserCreds)

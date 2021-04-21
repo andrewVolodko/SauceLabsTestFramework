@@ -12,25 +12,25 @@ public abstract class BasePage {
     public BasePage(BrowserService browserService) {
         this.browserService = browserService;
         this.driver = browserService.getDriver();
-
         this.baseUrl = new PropertiesLoader().getBaseUrl();
     }
 
     public abstract boolean isPageOpened();
+
     public void open() {
         waitForOpen();
     }
 
-    protected void waitForOpen(){
+    protected void waitForOpen() {
         int secondsCount = 0;
         boolean isPageOpenedIndicator = isPageOpened();
-        while (!isPageOpenedIndicator && secondsCount < 5){
+        while (!isPageOpenedIndicator && secondsCount < 5) {
             browserService.sleep(1000);
             secondsCount++;
             isPageOpenedIndicator = isPageOpened();
         }
 
-        if(!isPageOpenedIndicator){
+        if (!isPageOpenedIndicator) {
             throw new AssertionError("Page was not opened");
         }
     }

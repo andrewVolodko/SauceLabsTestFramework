@@ -20,7 +20,8 @@ public class ShoppingCartItemModel {
     public WebElement getName() {
         return name;
     }
-    public String getTextName(){
+
+    public String getTextName() {
         return name.getText();
     }
 
